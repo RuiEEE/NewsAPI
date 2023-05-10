@@ -23,4 +23,5 @@
             app:argType="dev.ruisantos.criticalnews.network.Article" />
 
     </fragment>
+
 </navigation>
