@@ -29,3 +29,4 @@ class MainViewModel(val repository: NewsRepository) : ViewModel() {
     }
 
 }
+

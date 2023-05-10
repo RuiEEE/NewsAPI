@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import dev.ruisantos.criticalnews.adapters.HeadlineAdapter
 import dev.ruisantos.criticalnews.data.NewsRepositoryImpl
 import dev.ruisantos.criticalnews.databinding.FragmentMainBinding
@@ -16,10 +18,6 @@ import dev.ruisantos.criticalnews.network.RetrofitCriticalNews
 import kotlinx.coroutines.launch
 
 class MainFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
@@ -44,7 +42,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvHeadlines.adapter = HeadlineAdapter(mutableListOf()) {
-            // TODO navigate to headline detail
+            findNavController().navigate(MainFragmentDirections.actionMainFragmentToDetailFragment(it))
         }
 
         lifecycleScope.launch {
