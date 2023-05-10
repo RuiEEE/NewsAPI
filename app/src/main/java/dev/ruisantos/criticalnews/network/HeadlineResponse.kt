@@ -17,6 +17,7 @@ data class Article(
     var url: String?,
     var urlToImage: String?,
     var content: String?,
+    var publishedAt: String?,
 ) : Parcelable
 
 @kotlinx.serialization.Serializable

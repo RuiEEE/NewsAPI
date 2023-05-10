@@ -8,7 +8,12 @@ import kotlinx.coroutines.flow.flow
 class NewsRepositoryImpl(private val retrofitCriticalNews: RetrofitCriticalNews) : NewsRepository {
 
     override fun getNews(): Flow<List<Article>> = flow {
-        emit(retrofitCriticalNews.networkApi.headlines().articles)
+
+        val articles = retrofitCriticalNews.networkApi.headlines().articles
+
+        emit(articles.sortedBy {
+            it.publishedAt
+        })
     }
 
 }
