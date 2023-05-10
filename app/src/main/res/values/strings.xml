@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Critical News</string>
+
+    <string name="news_sources" translatable="false">google-news</string>
+</resources>
