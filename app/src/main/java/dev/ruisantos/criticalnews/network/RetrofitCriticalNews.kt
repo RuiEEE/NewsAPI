@@ -9,7 +9,7 @@ import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 
-class RetrofitCriticalNews {
+class RetrofitCriticalNews : CriticalNewsDataSource {
 
     val okHttpCallFactory = OkHttpClient.Builder()
         .addInterceptor { chain ->
@@ -39,4 +39,8 @@ class RetrofitCriticalNews {
         .baseUrl("https://newsapi.org/v2/")
         .build()
         .create(NewsAPI::class.java)
+
+    override suspend fun getNews(): List<Article> {
+        return networkApi.headlines().articles
+    }
 }
