@@ -41,8 +41,12 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvHeadlines.adapter = HeadlineAdapter(mutableListOf()) {
-            findNavController().navigate(MainFragmentDirections.actionMainFragmentToDetailFragment(it))
+        binding.apply {
+            rvHeadlines.apply {
+                adapter = HeadlineAdapter(mutableListOf()) {
+                    findNavController().navigate(MainFragmentDirections.actionMainFragmentToDetailFragment(it))
+                }
+            }
         }
 
         lifecycleScope.launch {

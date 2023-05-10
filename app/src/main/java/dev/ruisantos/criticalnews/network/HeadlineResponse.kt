@@ -13,7 +13,10 @@ data class HeadlineResponse(
 data class Article(
     val source: NewsSource?,
     var title: String?,
-    var description: String?
+    var description: String?,
+    var url: String?,
+    var urlToImage: String?,
+    var content: String?,
 ) : Parcelable
 
 @kotlinx.serialization.Serializable

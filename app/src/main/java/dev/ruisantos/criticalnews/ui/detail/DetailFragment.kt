@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import dev.ruisantos.criticalnews.adapters.HeadlineAdapter
 import dev.ruisantos.criticalnews.data.NewsRepositoryImpl
 import dev.ruisantos.criticalnews.databinding.FragmentDetailBinding
@@ -27,7 +28,8 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
-    val args: DetailFragmentArgs by navArgs()
+    private val args: DetailFragmentArgs by navArgs()
+    private val mArticle get() = args.myArticle
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,8 +43,14 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
-            tvTitle.text = args.myArticle.title
-            tvDescription.text = args.myArticle.description
+
+            Glide.with(this@DetailFragment)
+                .load(mArticle.urlToImage)
+                .into(ivCover)
+
+            tvTitle.text = mArticle.title
+            tvDescription.text = mArticle.description
+            tvContent.text = mArticle.content
         }
     }
 
