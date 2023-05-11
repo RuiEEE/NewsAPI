@@ -56,6 +56,10 @@ android {
             dimension "default"
             buildConfigField "String", "SOURCES", "\"the-washington-post\""
         }
+        bbc {
+            dimension "default"
+            buildConfigField "String", "SOURCES", "\"bbc-news\""
+        }
     }
 }
 
