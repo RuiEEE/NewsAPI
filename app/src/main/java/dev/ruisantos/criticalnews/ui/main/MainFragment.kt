@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import dev.ruisantos.criticalnews.R
 import dev.ruisantos.criticalnews.adapters.HeadlineAdapter
 import dev.ruisantos.criticalnews.data.NewsRepositoryImpl
 import dev.ruisantos.criticalnews.databinding.FragmentMainBinding
@@ -29,7 +30,7 @@ class MainFragment : Fragment() {
     private lateinit var biometricPrompt: BiometricPrompt
     private lateinit var promptInfo: BiometricPrompt.PromptInfo
 
-    val launchSettings =
+    private val launchSettings =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             // Got back from the settings
         }
@@ -141,9 +142,9 @@ class MainFragment : Fragment() {
             })
 
         promptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Authenticate to continue")
-            .setSubtitle("Get in your latest news!")
-            .setNegativeButtonText("Cancel")
+            .setTitle(getString(R.string.biometric_title))
+            .setSubtitle(getString(R.string.biometric_subtitle))
+            .setNegativeButtonText(getString(R.string.biometric_cancel))
             .build()
 
         biometricPrompt.authenticate(promptInfo)

@@ -10,8 +10,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:itemCount="10"
+        app:spanCount="@integer/columns"
+        android:layout_marginHorizontal="@dimen/list_margin"
         tools:listitem="@layout/row_headline" />
 
     <Button
@@ -20,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="Auth"
+        android:text="@string/button_auth"
         android:visibility="gone"
         tools:visibility="visible" />
 

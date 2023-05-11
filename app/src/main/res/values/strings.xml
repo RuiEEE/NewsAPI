@@ -2,4 +2,9 @@
     <string name="app_name">Critical News</string>
 
     <string name="news_sources" translatable="false">google-news</string>
+    <string name="button_auth">Autenticar</string>
+
+    <string name="biometric_title">Authenticate to continue</string>
+    <string name="biometric_subtitle">Get in your latest news!</string>
+    <string name="biometric_cancel">Cancel</string>
 </resources>
