@@ -4,8 +4,6 @@ import dev.ruisantos.criticalnews.network.Article
 import dev.ruisantos.criticalnews.network.NewsSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.decodeFromStream
 
 class FakeNewsRepository : NewsRepository {
 

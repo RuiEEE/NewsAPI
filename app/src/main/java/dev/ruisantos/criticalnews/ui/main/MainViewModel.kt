@@ -1,8 +1,6 @@
 package dev.ruisantos.criticalnews.ui.main
 
 import android.content.Context
-import android.content.Intent
-import android.provider.Settings
 import androidx.biometric.BiometricManager
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -32,7 +30,7 @@ class MainViewModel(val repository: NewsRepository) : ViewModel() {
     }
 
     suspend fun checkBiometricAvailability(context: Context) {
-        if(hasAuthenticated) {
+        if (hasAuthenticated) {
             return
         }
 

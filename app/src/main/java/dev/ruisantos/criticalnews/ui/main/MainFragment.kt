@@ -99,10 +99,6 @@ class MainFragment : Fragment() {
         }
     }
 
-    fun getHeadlines() {
-        viewModel.fetchHeadlines()
-    }
-
     private fun openSettings() {
         Intent(Settings.ACTION_BIOMETRIC_ENROLL).apply {
             putExtra(
@@ -132,7 +128,7 @@ class MainFragment : Fragment() {
                 ) {
                     super.onAuthenticationSucceeded(result)
                     binding.bAuth.visibility = View.GONE
-                    getHeadlines()
+                    viewModel.fetchHeadlines()
                 }
 
                 override fun onAuthenticationFailed() {

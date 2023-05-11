@@ -7,4 +7,6 @@
     <string name="biometric_title">Authenticate to continue</string>
     <string name="biometric_subtitle">Get in your latest news!</string>
     <string name="biometric_cancel">Cancel</string>
+
+    <string name="accessibility_article_cover">Article cover</string>
 </resources>

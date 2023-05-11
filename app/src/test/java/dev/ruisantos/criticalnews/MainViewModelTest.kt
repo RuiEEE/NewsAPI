@@ -2,10 +2,6 @@ package dev.ruisantos.criticalnews
 
 import dev.ruisantos.criticalnews.data.FakeNewsRepository
 import dev.ruisantos.criticalnews.ui.main.MainViewModel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
@@ -25,7 +21,7 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `Headline UI is shown after fetching the Headlines` () = runTest {
+    fun `Headline UI is shown after fetching the Headlines`() = runTest {
         viewModel.fetchHeadlines()
         assert(viewModel.ui.value is MainViewModel.UI.Headlines)
         assert((viewModel.ui.value as MainViewModel.UI.Headlines).articles.size == fakeNewsRepository.articles.size)

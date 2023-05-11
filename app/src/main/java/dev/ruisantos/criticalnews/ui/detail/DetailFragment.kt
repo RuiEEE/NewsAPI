@@ -5,23 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import dev.ruisantos.criticalnews.adapters.HeadlineAdapter
-import dev.ruisantos.criticalnews.data.NewsRepositoryImpl
+import dev.ruisantos.criticalnews.R
 import dev.ruisantos.criticalnews.databinding.FragmentDetailBinding
-import dev.ruisantos.criticalnews.databinding.FragmentMainBinding
-import dev.ruisantos.criticalnews.network.Article
-import dev.ruisantos.criticalnews.network.RetrofitCriticalNews
-import dev.ruisantos.criticalnews.ui.main.MainFragmentDirections
-import dev.ruisantos.criticalnews.ui.main.MainViewModel
-import kotlinx.coroutines.launch
 
 class DetailFragment : Fragment() {
 
@@ -46,6 +33,7 @@ class DetailFragment : Fragment() {
 
             Glide.with(this@DetailFragment)
                 .load(mArticle.urlToImage)
+                .placeholder(R.drawable.placeholder)
                 .into(ivCover)
 
             tvTitle.text = mArticle.title
